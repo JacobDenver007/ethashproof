@@ -11,7 +11,6 @@ import (
 	"github.com/tranvictor/ethashproof"
 	"github.com/tranvictor/ethashproof/ethash"
 	"github.com/tranvictor/ethashproof/mtree"
-	"github.com/tranvictor/ethutils/reader"
 )
 
 type Output struct {
@@ -38,7 +37,7 @@ func main() {
 		return
 	}
 	fmt.Printf("Getting block header\n")
-	r := reader.NewEthReader()
+	r := ethashproof.NewLocalReader()
 	header, err := r.HeaderByNumber(int64(number))
 	if err != nil {
 		fmt.Printf("Getting header failed: %s\n", err)
